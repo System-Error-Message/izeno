@@ -1,0 +1,103 @@
+[0;34mUsing /etc/ansible/ansible.cfg as config file[0m
+[1;35m[WARNING]: provided hosts list is empty, only localhost is available. Note that[0m
+[1;35mthe implicit localhost does not match 'all'[0m
+[1;35m[WARNING]: running playbook inside collection[0m
+[1;35mansible.automation_platform_installer[0m
+[0;35m[DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks [0m
+[0;35minstead. See https://docs.ansible.com/ansible-[0m
+[0;35mcore/2.14/user_guide/playbooks_reuse_includes.html for details. This feature [0m
+[0;35mwill be removed in version 2.16. Deprecation warnings can be disabled by [0m
+[0;35msetting deprecation_warnings=False in ansible.cfg.[0m
+
+PLAY [Warn if no core component is enabled] ************************************
+
+TASK [Warn if no core component is enabled] ************************************
+Pausing for 30 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+[Warn if no core component is enabled]
+No host found in [automationcontroller], [automationhub], [automationedacontroller], or [database] groups. Are you sure this is what you want ? Please check your inventory:
+[0;32mok: [localhost] => {"changed": false, "delta": 30, "echo": true, "rc": 0, "start": "2024-02-13 13:43:59.491129", "stderr": "", "stdout": "Paused for 30.0 seconds", "stop": "2024-02-13 13:44:29.491268", "user_input": ""}[0m
+[1;35m[WARNING]: Could not match supplied host pattern, ignoring: tower[0m
+
+PLAY [Group all valid hosts for AAP installation] ******************************
+[0;36mskipping: no hosts matched[0m
+[1;35m[WARNING]: Could not match supplied host pattern, ignoring: aap_valid_hosts[0m
+
+PLAY [aap_valid_hosts] *********************************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Group nodes by OS distribution] ******************************************
+[0;36mskipping: no hosts matched[0m
+[1;35m[WARNING]: Could not match supplied host pattern, ignoring: RedHat_8[0m
+[1;35m[WARNING]: Could not match supplied host pattern, ignoring: RedHat_9[0m
+
+PLAY [Group supported distributions] *******************************************
+[0;36mskipping: no hosts matched[0m
+[1;35m[WARNING]: Could not match supplied host pattern, ignoring: none[0m
+
+PLAY [Group deprecated distributions] ******************************************
+[0;36mskipping: no hosts matched[0m
+[1;35m[WARNING]: Could not match supplied host pattern, ignoring: supported[0m
+
+PLAY [Ensure all node OS distributions are supported] **************************
+[0;36mskipping: no hosts matched[0m
+[1;35m[WARNING]: Could not match supplied host pattern, ignoring: deprecated[0m
+
+PLAY [Check for deprecated platforms] ******************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Define role discovered variables, usable throughout the playbook] ********
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Sanity check] ************************************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Receptor Sanity check] ***************************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Deactivate and uninstall desired nodes] **********************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Prep Tower node(s)] ******************************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Initialize Ansible Automation Platform internal CA server and service variables] ***
+[0;36mskipping: no hosts matched[0m
+[1;35m[WARNING]: Could not match supplied host pattern, ignoring: aap_ca_server[0m
+
+PLAY [Install Ansible Automation Platform internal CA] *************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Install postgres database node] ******************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Install Automation Controller and Execution nodes] ***********************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Post-Receptor setup] *****************************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Install Single Sign-On node] *********************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Configure Single Sign-On Realm] ******************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Install Automation Hub node] *********************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Install Automation EDA Controller] ***************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Post-install setup] ******************************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Post-install insights setup] *********************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY [Post-install cleanup] ****************************************************
+[0;36mskipping: no hosts matched[0m
+
+PLAY RECAP *********************************************************************
+[0;32mlocalhost[0m                  : [0;32mok=1   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

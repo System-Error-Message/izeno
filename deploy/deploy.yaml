@@ -1,0 +1,44 @@
+
+- name: yum update
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update cache
+      yum:
+        update_cache: yes
+        name: '*'
+        state: latest
+          
+    - name: Copy ansible playbook for VM2
+      ansible.posix.synchronize:
+        src: /root/update
+        dest: /home/ec2-user/
+
+    - name: Copy AAP
+      ansible.posix.synchronize:
+        src: /root/ansible-automation-platform-setup-bundle-2.4-1-x86_64
+        dest: /home/ec2-user/
+
+    - name: Copy cert
+      ansible.builtin.copy:
+        src: /root/AAP.pem
+        dest: /home/ec2-user/
+        owner: ec2-user
+        group: ec2-user
+        mode: '0400'
+
+    - name: update yum (incase first one failed)
+      ansible.builtin.shell: yes 'y' | sudo yum update
+      args:
+        executable: /bin/bash
+
+    - name: Install AAP
+      ansible.builtin.shell: yes 'y' | sudo /home/ec2-user/ansible-automation-platform-setup-bundle-2.4-1-x86_64/setup.sh
+      args:
+        executable: /bin/bash
+
+    - name: run AAP and accept new host
+      ansible.builtin.shell: yes 'yes' | ansible-playbook -v -i /home/ec2-user/update/inventory -u ec2-user /home/ec2-user/update/update_yum.yaml --private-key /home/ec2-user/AAP.pem > /home/ec2-user/log.txt
+      args:
+        executable: /bin/bash
+

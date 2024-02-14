@@ -1,0 +1,16 @@
+Using /etc/ansible/ansible.cfg as config file
+
+PLAY [yum update] **************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [172.31.128.141]
+ok: [172.31.128.105]
+
+TASK [Update cache] ************************************************************
+ok: [172.31.128.141] => {"changed": false, "msg": "Cache updated", "rc": 0, "results": []}
+ok: [172.31.128.105] => {"changed": false, "msg": "Cache updated", "rc": 0, "results": []}
+
+PLAY RECAP *********************************************************************
+172.31.128.105             : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+172.31.128.141             : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
